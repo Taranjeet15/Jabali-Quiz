@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevaSthanam Quiz- Kedarnath</title>
     <link rel="stylesheet" href="css/style.css">
+    <script defer src="script/rawgit-qrCode-qrPacked.js"></script>
 </head>
 
 <body>
@@ -31,17 +32,82 @@
 
         <!-- Quiz Sections -->
         <div id="quiz-sections">
-            <a href="historical.html">
-                <div id="historical-section">Historical</div>
-            </a>
-            <a href="geographical.html">
-                <div id="geographical-section">Geographical</div>
-            </a>
-            <a href="live.html">
-                <div id="live-section">Live</div>
-            </a>
+            <div id="historical-section" onclick="showHistorical()"> Historical </div>
+            <div id="geographical-section" onclick="showGeographical()">Geographical</div>
+                <div id="live-section" onclick="showLive()">Live</div>
             <div id="puzzle-section">Puzzle</div>
         </div>
+
+        <!-- Historical and Geographical Section -->
+        <main id="main">
+
+            <div id="question-container">
+                <span id="q-no">Q10:</span>
+                <p id="question"> </p>
+            </div>
+
+            <!-- For QR Only -->
+            <div id="img-container">
+                <img id="q-img" src="" alt="">
+            </div>
+            <!-- For QR Only -->
+            <div id="qr-container">
+                <a id="btn-scan-qr">
+                    <!-- <img src="images/qr-img.svg"> -->
+                    <button id="scan-qr" class="btn">Scan QR</button>
+                </a>
+
+                <canvas hidden="" id="qr-canvas"></canvas>
+
+                <div id="qr-result" hidden="">
+                    <span id="outputData"></span>
+                </div>
+            </div>
+
+            <div id="option-container">
+                <div class="background-reset">
+                    <input type="radio" id="option-a" name="selectedOption" value="">
+                    <label for="option-a">Option 1</label>
+                    <details>
+                        <summary>See Details</summary>
+                        <p class="details" id="detail-a">QQ</p>
+                    </details>
+                </div>
+                <div class="background-reset">
+                    <input type="radio" id="option-b" name="selectedOption" value="">
+                    <label for="option-b">Option 2</label>
+                    <details>
+                        <summary>See Details</summary>
+                        <p class="details" id="detail-b">QQ</p>
+                    </details>
+                </div>
+                <div class="background-reset">
+                    <input type="radio" id="option-c" name="selectedOption" value="">
+                    <label for="option-c">Option 3</label>
+                    <details>
+                        <summary>See Details</summary>
+                        <p class="details" id="detail-c">QQ</p>
+                    </details>
+                </div>
+                <div class="background-reset">
+                    <input type="radio" id="option-d" name="selectedOption" value="">
+                    <label for="option-d">Option 4</label>
+                    <details>
+                        <summary>See Details</summary>
+                        <p class="details" id="detail-d">QQ</p>
+                    </details>
+                </div>
+            </div>
+
+            <div id="btn-container">
+                <button id="prev-btn" class="btn">Prev</button>
+                <button id="check-btn" class="btn">Check</button>
+                <button id="next-btn" class="btn">Next</button>
+            </div>
+            <div class="text-center">
+                <button id="submit-btn" class="btn">Submit Quiz</button>
+            </div>
+        </main>
 
         <!-- Score Section -->
         <section id="score-window">
@@ -54,9 +120,11 @@
             <h2 class="text-left">
                 Coins Earned: <span id="coins-earned"> </span>
             </h2>
+            <button id="finish-review" class="btn">Finish Review</button>
         </section>
     </div>
 </body>
 <script src="script/script.js"></script>
+<script defer src="script/qrCodeScanner.js"></script>
 
 </html>
